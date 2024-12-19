@@ -1,0 +1,32 @@
+# Use the official Nginx base image
+FROM nginx:latest
+
+# Set the maintainer label
+LABEL maintainer="your_email@example.com"
+
+# Copy your custom Nginx configuration file to the container
+COPY nginx.conf /etc/nginx/nginx.conf
+
+# Copy static files or application files to the appropriate directory
+COPY html/ /usr/share/nginx/html/
+
+# Expose the default Nginx HTTP port
+EXPOSE 80
+
+# Start Nginx server
+CMD ["nginx", "-g", "daemon off;"]
+
+
+---------------------------------------------------------------------
+                 Index Html File Nginx Via Deploy
+---------------------------------------------------------------------
+
+FROM nginx:1.10.1-alpine
+COPY index.html /usr/share/nginx/html
+EXPOSE 8080
+CMD ["nginx", "-g", "daemon off;"]
+
+
+---------------------------------------------------------------------
+                 Index Html File Nginx Via Deploy
+---------------------------------------------------------------------
